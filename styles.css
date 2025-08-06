@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #1a1a1a;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.light {
+    background-color: #f0f0f0;
+    color: #333;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+header {
+    position: relative;
+    padding: 10px;
+}
+.mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+}
+#modeToggle {
+    padding: 5px 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.expert-insights {
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+#volatilitySelect {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+body.light #volatilitySelect {
+    background: #ddd;
+    color: #333;
+}
+.price-tick {
+    background: #28a745;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.trade-type {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px 0;
+}
+.trade-btn {
+    padding: 10px 20px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+body.light .trade-btn {
+    background: #ccc;
+    color: #333;
+}
+.trade-btn.active {
+    background: #007bff;
+}
+.digit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin: 10px 0;
+}
+.digit {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 0.9em;
+}
+body.light .digit {
+    background: #ddd;
+    color: #333;
+}
+.digit.active {
+    background: #fff;
+    color: #000;
+}
+.eo-sequence {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin: 10px 0;
+}
+.eo-indicator {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+.eo-indicator.even {
+    background: #dc3545;
+}
+.eo-indicator.odd {
+    background: #28a745;
+}
+.control-section {
+    margin: 15px 0;
+}
+.control-section h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+select, .analyze-btn {
+    padding: 5px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+body.light select, body.light .analyze-btn {
+    background: #ccc;
+    color: #333;
+}
+.analyze-btn {
+    cursor: pointer;
+}
+.prediction {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.timer {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #007bff;
+}
+.panel {
+    display: block;
+}
+.panel.hidden {
+    display: none;
+}
