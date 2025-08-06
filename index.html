@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterD Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="MasterD Analysis: AI-driven predictions for Deriv volatility indices.">
+    <meta name="keywords" content="Deriv, volatility indices, AI analysis">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section: Volatility Selection and Price -->
+        <header>
+            <div class="mode-toggle">
+                <button id="modeToggle">🌙 Dark</button>
+                <div class="expert-insights" id="expertInsights">Recent streak: Analyzing...</div>
+            </div>
+            <select id="volatilitySelect">
+                <option value="V100" selected>Volatility 100 Index</option>
+                <option value="V10">Volatility 10 Index</option>
+                <option value="V10s">Volatility 10 (1s) Index</option>
+                <option value="V24">Volatility 24 Index</option>
+                <option value="V24s">Volatility 24 (1s) Index</option>
+                <option value="V75">Volatility 75 Index</option>
+                <option value="V75s">Volatility 75 (1s) Index</option>
+                <option value="V100s">Volatility 100 (1s) Index</option>
+                <option value="V150">Volatility 150 Index</option>
+                <option value="V150s">Volatility 150 (1s) Index</option>
+            </select>
+            <div class="price-tick" id="priceTick">Loading...</div>
+        </header>
+
+        <!-- Middle Section: Trade Type Selector -->
+        <section class="trade-type">
+            <button class="trade-btn active" data-type="digits">Digits</button>
+            <button class="trade-btn" data-type="updown">Up and Down</button>
+        </section>
+
+        <!-- Digits Analysis Panel -->
+        <section id="digitsPanel" class="panel">
+            <div class="digit-grid">
+                <div class="digit" data-digit="0">0<br><span>0%</span></div>
+                <div class="digit" data-digit="1">1<br><span>0%</span></div>
+                <div class="digit" data-digit="2">2<br><span>0%</span></div>
+                <div class="digit" data-digit="3">3<br><span>0%</span></div>
+                <div class="digit" data-digit="4">4<br><span>0%</span></div>
+                <div class="digit" data-digit="5">5<br><span>0%</span></div>
+                <div class="digit" data-digit="6">6<br><span>0%</span></div>
+                <div class="digit" data-digit="7">7<br><span>0%</span></div>
+                <div class="digit" data-digit="8">8<br><span>0%</span></div>
+                <div class="digit" data-digit="9">9<br><span>0%</span></div>
+            </div>
+            <div class="eo-sequence" id="eoSequence"></div>
+            <div class="analysis-controls">
+                <!-- Even/Odd -->
+                <div class="control-section">
+                    <h3>Even/Odd</h3>
+                    <select id="eoSelect">
+                        <option value="even">Even</option>
+                        <option value="odd">Odd</option>
+                    </select>
+                    <button class="analyze-btn" data-type="eo">Analyze</button>
+                    <div class="prediction" id="eoPrediction"></div>
+                </div>
+                <!-- Over/Under -->
+                <div class="control-section">
+                    <h3>Over/Under</h3>
+                    <select id="ouDigitSelect">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                    <select id="ouTypeSelect">
+                        <option value="over">Over</option>
+                        <option value="under">Under</option>
+                    </select>
+                    <button class="analyze-btn" data-type="ou">Analyze</button>
+                    <div class="prediction" id="ouPrediction"></div>
+                </div>
+                <!-- Matches/Differs -->
+                <div class="control-section">
+                    <h3>Matches/Differs</h3>
+                    <select id="mdDigitSelect">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                    <button class="analyze-btn" data-type="md">Analyze</button>
+                    <div class="prediction" id="mdPrediction"></div>
+                    <div class="timer" id="mdTimer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Up and Down Analysis Panel -->
+        <section id="updownPanel" class="panel hidden">
+            <button class="analyze-btn" data-type="ud">Analyze</button>
+            <div class="prediction" id="udPrediction"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
