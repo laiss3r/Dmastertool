@@ -1,39 +1,82 @@
-// Deriv API Configuration
-const DERIV_WS_URL = 'wss://ws.derivws.com/websockets/v3?app_id=90470';
-const API_TOKEN = 'tGNBkuzzO6lmo7r';
+// MasterD Analysis
 
-// State
-let ws = null;
-let currentIndex = 'R_100'; // Default: Volatility 100 Index
-let tickHistory = [];
-const maxTicks = 100;
-let eoSequence = [];
+// Volatility Selection Panel
+const volatilityIndices = ["V10", "V10s", "V24", "V24s", "V75", "V75s", "V100", "V100s", "V150", "V150s"];
+let currentIndex = "V100"; // Default index
+let currentPrice = 0;
 
-// Map UI index names to Deriv API symbols
-const indexMap = {
-    'V100': 'R_100',
-    'V10': 'R_10',
-    'V10s': '1HZ10V',
-    'V24': 'R_24',
-    'V24s': '1HZ24V',
-    'V75': 'R_75',
-    'V75s': '1HZ75V',
-    'V100s': '1HZ100V',
-    'V150': 'R_150',
-    'V150s': '1HZ150V'
-};
+// Function to update price in real-time
+function updatePrice() {
+    // Fetch the latest price from Deriv's RNG
+    currentPrice = fetchLatestPrice(currentIndex);
+    document.getElementById("priceDisplay").innerText = currentPrice;
+}
 
-// DOM Elements
-const volatilitySelect = document.getElementById('volatilitySelect');
-const priceTick = document.getElementById('priceTick');
-const digitsPanel = document.getElementById('digitsPanel');
-const updownPanel = document.getElementById('updownPanel');
-const tradeButtons = document.querySelectorAll('.trade-btn');
-const digitGrid = document.querySelectorAll('.digit');
-const eoSequenceDiv = document.getElementById('eoSequence');
-const eoSelect = document.getElementById('eoSelect');
-const ouDigitSelect = document.getElementById('ouDigitSelect');
-const ouTypeSelect = document.getElementById('ouTypeSelect');
+// Trade Type Panel
+let tradeType = "Digits"; // Default trade type
+
+// Digits Analysis Panel
+const digitGrid = Array(10).fill(0);
+let lastTicks = [];
+
+// Function to analyze digits
+function analyzeDigits() {
+    const prediction = predictDigits(lastTicks);
+    document.getElementById("digitPrediction").innerText = prediction;
+}
+
+// Over/Under Analysis
+function analyzeOverUnder(selectedDigit, direction) {
+    const prediction = predictOverUnder(selectedDigit, direction, lastTicks);
+    document.getElementById("overUnderPrediction").innerText = prediction;
+}
+
+// Matches/Differs Analysis
+function analyzeMatches() {
+    const prediction = predictMatches(lastTicks);
+    document.getElementById("matchesPrediction").innerText = prediction;
+}
+
+// Up and Down Analysis Panel
+function analyzeTrend() {
+    const prediction = predictTrend(lastTicks);
+    document.getElementById("trendPrediction").innerText = prediction;
+}
+
+// Event Listeners
+document.getElementById("volatilitySelect").addEventListener("change", (event) => {
+    currentIndex = event.target.value;
+    updatePrice();
+});
+
+document.getElementById("analyzeDigits").addEventListener("click", analyzeDigits);
+document.getElementById("analyzeOverUnder").addEventListener("click", () => {
+    const selectedDigit = document.getElementById("selectedDigit").value;
+    const direction = document.querySelector('input[name="overUnderDirection"]:checked').value;
+    analyzeOverUnder(selectedDigit, direction);
+});
+document.getElementById("analyzeMatches").addEventListener("click", analyzeMatches);
+document.getElementById("analyzeTrend").addEventListener("click", analyzeTrend);
+
+// AI Prediction Logic
+function predictDigits(ticks) {
+    // Implement prediction logic for Even/Odd
+}
+
+function predictOverUnder(digit, direction, ticks) {
+    // Implement prediction logic for Over/Under
+}
+
+function predictMatches(ticks) {
+    // Implement prediction logic for Matches/Differs
+}
+
+function predictTrend(ticks) {
+    // Implement prediction logic for Up and Down
+}
+
+// Initialize
+updatePrice();
 const mdDigitSelect = document.getElementById('mdDigitSelect');
 const eoPrediction = document.getElementById('eoPrediction');
 const ouPrediction = document.getElementById('ouPrediction');
