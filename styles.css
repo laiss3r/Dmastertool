@@ -1,146 +1,136 @@
+# MasterD Analysis
+
+/* General Styles */
 body {
+    background-color: #121212;
+    color: #ffffff;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 10px;
-    background-color: #1a1a1a;
-    color: #fff;
-    transition: background-color 0.3s, color 0.3s;
 }
-body.light {
-    background-color: #f0f0f0;
-    color: #333;
-}
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-}
-header {
-    position: relative;
-    padding: 10px;
-}
-.mode-toggle {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    text-align: right;
-}
-#modeToggle {
-    padding: 5px 10px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.expert-insights {
-    font-size: 0.8em;
-    margin-top: 5px;
-}
-#volatilitySelect {
-    width: 100%;
-    padding: 10px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-}
-body.light #volatilitySelect {
-    background: #ddd;
-    color: #333;
-}
-.price-tick {
-    background: #28a745;
-    color: #fff;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1.2em;
-}
-.trade-type {
+
+/* Top Section */
+.top-section {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
-.trade-btn {
-    padding: 10px 20px;
-    background: #444;
-    color: #fff;
+
+.volatility-dropdown {
+    background-color: #1e1e1e;
+    color: #ffffff;
     border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.price-highlight {
+    font-size: 24px;
+    color: #00ff00;
+}
+
+/* Middle Section */
+.middle-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.trade-type-selector {
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
     border-radius: 5px;
     cursor: pointer;
 }
-body.light .trade-btn {
-    background: #ccc;
-    color: #333;
-}
-.trade-btn.active {
-    background: #007bff;
-}
-.digit-grid {
+
+/* Digits Panel */
+.digits-panel {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-    margin: 10px 0;
+    gap: 10px;
+    margin: 20px 0;
 }
+
 .digit {
-    background: #333;
-    color: #fff;
-    padding: 10px;
+    background-color: #1e1e1e;
+    padding: 20px;
     text-align: center;
+    border-radius: 5px;
+}
+
+.cursor {
+    border: 2px solid #ff0000;
     border-radius: 50%;
-    font-size: 0.9em;
-    position: relative;
-}
-body.light .digit {
-    background: #ddd;
-    color: #333;
-}
-.digit span {
-    display: block;
-    font-size: 0.7em;
-}
-.digit.active::after {
-    content: '●';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 1.2em;
-}
-.eo-sequence {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    margin: 10px 0;
-    animation: moveSequence 8s linear infinite;
-}
-@keyframes moveSequence {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-.eo-indicator {
     width: 20px;
     height: 20px;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 50%;
+    position: absolute;
 }
-.eo-indicator.even {
-    background: #dc3545;
+
+/* Even/Odd Indicators */
+.even-indicator {
+    color: red;
 }
-.eo-indicator.odd {
-    background: #28a745;
+
+.odd-indicator {
+    color: green;
 }
-.control-section {
-    margin: 15px 0;
+
+/* Over/Under Indicators */
+.over-indicator {
+    color: blue;
 }
-.control-section h3 {
-    font-size: 1em;
-    margin-bottom: 5px;
+
+.under-indicator {
+    color: red;
+}
+
+/* Matches/Differs Section */
+.matches-differs {
+    margin: 20px 0;
+}
+
+.countdown-timer {
+    font-size: 20px;
+    color: #ffcc00;
+}
+
+/* Up and Down Panel */
+.up-down-panel {
+    margin: 20px 0;
+}
+
+/* Bottom Section */
+.bottom-section {
+    margin-top: 20px;
+}
+
+/* Toggle Button */
+.toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Expert Insights */
+.expert-insights {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+}
 }
 select, .analyze-btn {
     padding: 5px;
