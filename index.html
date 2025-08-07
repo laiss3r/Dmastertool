@@ -10,31 +10,112 @@
 </head>
 <body>
     <div class="container">
-        <!-- Top Section: Volatility Selection and Price -->
+        <!-- Top Section: Volatility Selection Panel -->
         <header>
             <div class="mode-toggle">
                 <button id="modeToggle">🌙 Dark</button>
-                <div class="expert-insights" id="expertInsights">Recent streak: Analyzing...</div>
+                <div class="expert-insights" id="expertInsights">Analyzing patterns...</div>
             </div>
             <select id="volatilitySelect">
-                <option value="V100" selected>Volatility 100 Index</option>
-                <option value="V10">Volatility 10 Index</option>
-                <option value="V10s">Volatility 10 (1s) Index</option>
-                <option value="V24">Volatility 24 Index</option>
-                <option value="V24s">Volatility 24 (1s) Index</option>
-                <option value="V75">Volatility 75 Index</option>
-                <option value="V75s">Volatility 75 (1s) Index</option>
-                <option value="V100s">Volatility 100 (1s) Index</option>
-                <option value="V150">Volatility 150 Index</option>
-                <option value="V150s">Volatility 150 (1s) Index</option>
+                <option value="R_10">V10</option>
+                <option value="1HZ10V">V10s</option>
+                <option value="R_24">V24</option>
+                <option value="1HZ24V">V24s</option>
+                <option value="R_75">V75</option>
+                <option value="1HZ75V">V75s</option>
+                <option value="R_100" selected>V100</option>
+                <option value="1HZ100V">V100s</option>
+                <option value="R_150">V150</option>
+                <option value="1HZ150V">V150s</option>
             </select>
             <div class="price-tick" id="priceTick">Loading...</div>
         </header>
 
-        <!-- Middle Section: Trade Type Selector -->
+        <!-- Middle Section: Trade Type Panel -->
         <section class="trade-type">
             <button class="trade-btn active" data-type="digits">Digits</button>
             <button class="trade-btn" data-type="updown">Up and Down</button>
+        </section>
+
+        <!-- Digits Analysis Panel -->
+        <section id="digitsPanel" class="panel">
+            <div class="digit-grid">
+                <div class="digit" data-digit="0"><span>0<br>0%</span></div>
+                <div class="digit" data-digit="1"><span>1<br>0%</span></div>
+                <div class="digit" data-digit="2"><span>2<br>0%</span></div>
+                <div class="digit" data-digit="3"><span>3<br>0%</span></div>
+                <div class="digit" data-digit="4"><span>4<br>0%</span></div>
+                <div class="digit" data-digit="5"><span>5<br>0%</span></div>
+                <div class="digit" data-digit="6"><span>6<br>0%</span></div>
+                <div class="digit" data-digit="7"><span>7<br>0%</span></div>
+                <div class="digit" data-digit="8"><span>8<br>0%</span></div>
+                <div class="digit" data-digit="9"><span>9<br>0%</span></div>
+            </div>
+            <div class="eo-sequence" id="eoSequence"></div>
+            <div class="analysis-controls">
+                <!-- Even/Odd Analysis -->
+                <div class="control-section">
+                    <h3>Even/Odd</h3>
+                    <select id="eoSelect">
+                        <option value="even">Even</option>
+                        <option value="odd">Odd</option>
+                    </select>
+                    <button class="analyze-btn" data-type="eo">Analyze</button>
+                    <div class="prediction" id="eoPrediction"></div>
+                </div>
+                <!-- Over/Under Analysis -->
+                <div class="control-section">
+                    <h3>Over/Under</h3>
+                    <select id="ouDigitSelect">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                    <select id="ouTypeSelect">
+                        <option value="over">Over</option>
+                        <option value="under">Under</option>
+                    </select>
+                    <button class="analyze-btn" data-type="ou">Analyze</button>
+                    <div class="prediction" id="ouPrediction"></div>
+                </div>
+                <!-- Matches/Differs Analysis -->
+                <div class="control-section">
+                    <h3>Matches/Differs</h3>
+                    <select id="mdDigitSelect">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                    <button class="analyze-btn" data-type="md">Analyze</button>
+                    <div class="prediction" id="mdPrediction"></div>
+                    <div class="timer" id="mdTimer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Up and Down Analysis Panel -->
+        <section id="updownPanel" class="panel hidden">
+            <button class="analyze-btn" data-type="ud">Analyze</button>
+            <div class="prediction" id="udPrediction"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>            <button class="trade-btn" data-type="updown">Up and Down</button>
         </section>
 
         <!-- Digits Analysis Panel -->
